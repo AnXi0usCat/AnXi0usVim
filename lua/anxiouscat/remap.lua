@@ -29,3 +29,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", { noremap = true })
 
 ---keep copied stuff in register
 keymap("x", "<leader>p", "\"_dP", { noremap = true })
+
+
+-- neo tree open/close
+keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { noremap = true })
+keymap("n", "<leader>o", "<cmd>Neotree focus<cr>", { noremap = true })
