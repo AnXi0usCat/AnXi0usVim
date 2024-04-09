@@ -8,7 +8,8 @@ local lsp = require('lsp-zero').preset({
 lsp.ensure_installed({
     'pyright',
     'rust_analyzer',
-    'gopls'
+    'gopls',
+    'zls'
 })
 
 --local cmp = require('cmp')
@@ -32,6 +33,18 @@ lsp.configure('pyright', {
         }
     }
 }
+})
+
+lsp.configure('rust_analyzer', {
+    settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+              enable = true,
+              disabled = {"unresolved-proc-macro"},
+              enableExperimental = true,
+          }
+      }
+  }
 })
 
 lsp.configure('black', {
