@@ -9,7 +9,7 @@ lsp.ensure_installed({
     'pyright',
     'rust_analyzer',
     'gopls',
-    'zls'
+    'terraformls'
 })
 
 --local cmp = require('cmp')
