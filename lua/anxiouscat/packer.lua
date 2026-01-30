@@ -38,10 +38,10 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
 
     -- buffer line
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons'}
 
     --terminal
-    use {"akinsho/toggleterm.nvim", tag = '*'}
+    use {"akinsho/toggleterm.nvim"}
 
     -- LSP
     use {
