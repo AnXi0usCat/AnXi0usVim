@@ -15,3 +15,5 @@ vim.o.termguicolors = true
 vim.o.updatetime = 50
 
 vim.g.mapleader = " "
+
+vim.opt.clipboard = "unnamedplus"
