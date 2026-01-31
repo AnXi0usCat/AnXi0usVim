@@ -51,30 +51,9 @@ local capabilities = cmp_lsp.default_capabilities()
 -- Set global capabilities for all servers
 vim.lsp.config("*", { capabilities = capabilities })
 
--- Specific Server Settings
-vim.lsp.config("pyright", {
-    settings = {
-        python = {
-            analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
-            },
-        },
-    },
-})
-
-vim.lsp.config("rust_analyzer", {
-    settings = {
-        ["rust-analyzer"] = {
-            diagnostics = {
-                enable = true,
-                disabled = { "unresolved-proc-macro" },
-                enableExperimental = true,
-            },
-        },
-    },
-})
+-- Apply specific settings from our new files
+vim.lsp.config("pyright", require("anxiouscat.lsp_settings.pyright"))
+vim.lsp.config("rust_analyzer", require("anxiouscat.lsp_settings.rust_analyzer"))
 
 -- 4. Enable the servers
 vim.lsp.enable({ "pyright", "rust_analyzer", "gopls", "terraformls" })
