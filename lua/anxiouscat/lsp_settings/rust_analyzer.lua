@@ -1,12 +1,10 @@
 return {
     settings = {
-        python = {
-            analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
             },
+            checkOnSave = true,
         },
     },
 }
-
