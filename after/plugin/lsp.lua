@@ -6,7 +6,7 @@ local luasnip = require("luasnip")
 
 mason.setup()
 mason_lspconfig.setup({
-    ensure_installed = { "pyright", "rust_analyzer", "gopls", "terraformls" },
+    ensure_installed = { "pyright", "rust_analyzer", "lua_ls" },
 })
 
 -- 1. Setup Completion (remains largely the same)
@@ -19,6 +19,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
@@ -54,9 +55,18 @@ vim.lsp.config("*", { capabilities = capabilities })
 -- Apply specific settings from our new files
 vim.lsp.config("pyright", require("anxiouscat.lsp_settings.pyright"))
 vim.lsp.config("rust_analyzer", require("anxiouscat.lsp_settings.rust_analyzer"))
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
+})
 
 -- 4. Enable the servers
-vim.lsp.enable({ "pyright", "rust_analyzer", "gopls", "terraformls" })
+vim.lsp.enable({ "pyright", "rust_analyzer", "lua_ls" })
 
 -- 5. Diagnostic Config (remains the same)
 vim.diagnostic.config({
@@ -74,4 +84,3 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
-
