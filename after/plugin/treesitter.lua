@@ -7,7 +7,7 @@ end
 
 -- 2. Your existing configuration
 ts_configs.setup {
-  ensure_installed = { "c", "lua", "vim", "help", "rust", "python", "javascript", "typescript", "terraform", "go" },
+  ensure_installed = { "lua", "vim", "vimdoc", "rust", "python" },
   sync_install = false,
   auto_install = true,
 
@@ -16,4 +16,3 @@ ts_configs.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
