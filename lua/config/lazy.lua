@@ -60,5 +60,10 @@ require("lazy").setup({
     },
 
     -- Code Bridge
-    "samir-roy/code-bridge.nvim"
+    {
+      "samir-roy/code-bridge.nvim",
+      config = function()
+        require('code-bridge').setup()
+      end
+    } 
 })
